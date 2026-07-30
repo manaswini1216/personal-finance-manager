@@ -9,6 +9,7 @@ import com.syfe.financemanager.dto.ReportResponse;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/transactions")
 public class TransactionController {
