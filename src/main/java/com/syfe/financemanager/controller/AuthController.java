@@ -1,5 +1,5 @@
 package com.syfe.financemanager.controller;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import com.syfe.financemanager.dto.RegisterRequest;
 import com.syfe.financemanager.entity.User;
 import com.syfe.financemanager.service.AuthService;
