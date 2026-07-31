@@ -46,4 +46,30 @@ public class GoalService {
 
         return goalRepository.findByUser(user);
     }
+
+    public Goal updateGoal(
+            Long goalId,
+            GoalRequest request) {
+
+        Goal goal = goalRepository.findById(goalId)
+                .orElseThrow(() ->
+                        new RuntimeException("Goal not found"));
+
+        goal.setGoalName(request.getGoalName());
+        goal.setTargetAmount(request.getTargetAmount());
+        goal.setSavedAmount(request.getSavedAmount());
+
+        return goalRepository.save(goal);
+    }
+
+    public String deleteGoal(Long goalId) {
+
+        Goal goal = goalRepository.findById(goalId)
+                .orElseThrow(() ->
+                        new RuntimeException("Goal not found"));
+
+        goalRepository.delete(goal);
+
+        return "Goal deleted successfully";
+    }
 }
