@@ -1,5 +1,5 @@
 package com.syfe.financemanager.controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
+
 import com.syfe.financemanager.dto.GoalRequest;
 import com.syfe.financemanager.entity.Goal;
 import com.syfe.financemanager.service.GoalService;
@@ -29,5 +29,20 @@ public class GoalController {
             @PathVariable Long userId) {
 
         return goalService.getGoals(userId);
+    }
+
+    @PutMapping("/{goalId}")
+    public Goal updateGoal(
+            @PathVariable Long goalId,
+            @RequestBody GoalRequest request) {
+
+        return goalService.updateGoal(goalId, request);
+    }
+
+    @DeleteMapping("/{goalId}")
+    public String deleteGoal(
+            @PathVariable Long goalId) {
+
+        return goalService.deleteGoal(goalId);
     }
 }
